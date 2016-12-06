@@ -15,36 +15,19 @@
 		<header>
 			<h1><i class="fa fa-fire"></i>Hot Restaurant</h1>
 			<hr>
-			<h2>Current Reservations and Waiting List</h2>
+			<h5>We only have 5 tables! Book your seat before they are all gone!</h2>
 			<span>
-                <a class="btn red waves-effect waves-light"><i class="fa fa-calendar-check-o"></i> Make Reservation</a>
-                <a href="#" class="btn waves-effect waves-light"><i class="fa fa-home"></i></a>
+                <a href="view"class="btn blue waves-effect waves-light"><i class="fa fa-calendar-check-o"></i> View Tables</a>
+                <a href="reserve" class="btn red waves-effect waves-light"><i class="fa fa-home"></i> Make Reservation</a>
             </span>
 			<br>
 		</header>
 		<br>
-		<section>
-			<header>
-				<h6>Current Reservations</h6>
-			</header>
-			<article id="reservations"></article>
-		</section>
-		<br>
-		<section>
-			<header>
-				<h6>Waiting List</h6>
-			</header>
-			<article id="waitingList"></article>
-		</section>
-		<br>
 		<footer>
-			<h6>Control Panel</h6>
 			<span>
-				<a id="clear">Clear Table</a>
+				<a href="api/tables" id="table">API Table Link</a>
 				<a>|</a>
-				<a href="tables" id="table">API Table Link</a>
-				<a>|</a>
-				<a href="waiting" id="wait">API Wait List</a>
+				<a href="api/waiting" id="wait">API Wait List</a>
 			</span>
 		</footer>
 	</div>

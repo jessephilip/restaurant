@@ -24,6 +24,32 @@ app.use(bodyParser.json({
 	type: "application/vnd.api+json"
 }));
 
+// array for reserved tables
+var entries = [{
+	name: "Jesse Matherne",
+	phone: "1234567890",
+	email: "jessephilip@gmail.com",
+	unique: "jpm8857"
+}, {
+	name: "Randi Croft",
+	phone: "0987654321",
+	email: "rc@gmail.com",
+	unique: "rmc4321"
+}, {
+	name: "Sheryl Matherne",
+	phone: "5678901234",
+	email: "kk@live.com",
+	unique: "sbm1234"
+}];
+
+// array for waiting list
+var waiting = [{
+	name: "Larry Matherne",
+	phone: "3456789012",
+	email: "kk@live.com",
+	unique: "lbm9012"
+}];
+
 // Routes
 // =============================================================
 
@@ -32,23 +58,41 @@ app.get("/", function (req, res) {
 	res.sendFile(path.join(__dirname, "index.html"));
 });
 
-app.get("/tables", function(req, res) {
-  res.sendFile(path.join(__dirname, "tables.html"));
+app.get("/api/tables", function (req, res) {
+	res.send(entries);
 });
 
-app.get("/waiting", function(req, res) {
-  res.sendFile(path.join(__dirname, "waiting.html"));
+app.get("/api/waiting", function (req, res) {
+	res.send(waiting);
+});
+
+app.get("/reserve", function (req, res) {
+	res.sendFile(path.join(__dirname, "reserve.html"));
+});
+
+app.get("/view", function (req, res) {
+	res.sendFile(path.join(__dirname, "viewtables.html"));
+});
+
+app.get("/api", function (req, res) {
+	res.send(entries);
+});
+
+app.get("/clear", function (req, res) {
+	entries = {};
+	console.log("cleared reservations");
 });
 
 // Search for specific entry - provides JSON
 app.get("/api/:entries?", function (req, res) {
 	var chosen = req.params.entries;
+	chosen = chosen.toLowerCase()
 
 	if (chosen) {
 		console.log(chosen);
 
 		for (var i = 0; i < entries.length; i++) {
-			if (chosen === entries[i].routeName) {
+			if (chosen === entries[i].name.toLowerCase()) {
 				res.json(entries[i]);
 				return;
 			}
@@ -56,7 +100,7 @@ app.get("/api/:entries?", function (req, res) {
 
 		res.json(false);
 	} else {
-		res.json(entry);
+		res.json(entries);
 	}
 });
 
@@ -68,7 +112,9 @@ app.post("/api/new", function (req, res) {
 	console.log(newEntry);
 
 	// We then add the json the user sent to the character array
-	entries.push(newEntry);
+	console.log(entries.length);
+	if (entries.length > 4) waiting.push(newEntry);
+	else entries.push(newEntry);
 
 	// We then display the JSON to the users
 	res.json(newEntry);
