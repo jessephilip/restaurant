@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Hotty Puhtotty Restaurant</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Compiled and minified CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+	<div class="container">
+		<header>
+			<h1><i class="fa fa-fire"></i>Hot Restaurant</h1>
+			<hr>
+			<h2>Current Reservations and Waiting List</h2>
+			<span>
+                <a class="btn red waves-effect waves-light"><i class="fa fa-calendar-check-o"></i> Make Reservation</a>
+                <a href="#" class="btn waves-effect waves-light"><i class="fa fa-home"></i></a>
+            </span>
+			<br>
+		</header>
+		<br>
+		<section>
+			<header>
+				<h6>Current Reservations</h6>
+			</header>
+			<article id="reservations"></article>
+		</section>
+		<br>
+		<section>
+			<header>
+				<h6>Waiting List</h6>
+			</header>
+			<article id="waitingList"></article>
+		</section>
+		<br>
+		<footer>
+			<h6>Control Panel</h6>
+			<span>
+				<a id="clear">Clear Table</a>
+				<a>|</a>
+				<a href="tables" id="table">API Table Link</a>
+				<a>|</a>
+				<a href="waiting" id="wait">API Wait List</a>
+			</span>
+		</footer>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<!-- Compiled and minified JavaScript -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+</body>
+
+</html>
